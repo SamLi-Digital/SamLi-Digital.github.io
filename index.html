@@ -222,7 +222,7 @@ footer{font-size:.85rem;color:var(--muted)}
     <div><dt>Role</dt><dd>Solo project, self-taught</dd></div>
     <div><dt>Year</dt><dd>2026</dd></div>
     <div><dt>Tools</dt><dd>Ansys Icepak (Electronics Desktop)</dd></div>
-    <div><dt>Status</dt><dd><span class="status prog">v1 solved · design study next</span></dd></div>
+    <div><dt>Status</dt><dd><span class="status prog">v1 solved · flow sweep in progress</span></dd></div>
   </dl>
   <div class="two">
     <div class="col">
@@ -232,7 +232,8 @@ footer{font-size:.85rem;color:var(--muted)}
         <li>Baseline case: 500 W, 25 °C water at 1 L/min.</li>
         <li>Realistic case: 1,000 W with 40 °C inlet water, closer to a real data center loop.</li>
         <li>Checked the solution by closing the energy balance (999.99 W out of 1,000 W) and watching monitor points, not just residuals.</li>
-        <li>Next: flow sweep (1.5 to 3 L/min), a mesh study, and 0.5 mm channels to bring the chip under an 85 °C target with margin.</li>
+        <li>Started the flow sweep: raising the flow from 1.0 to 1.5 L/min dropped the chip from 84.8 to 78.7 °C, at the cost of more pumping pressure.</li>
+        <li>Next: finish the sweep up to 3 L/min, run a mesh study, and try 0.5 mm channels to keep the chip well under an 85 °C target.</li>
       </ul>
     </div>
     <figure>
@@ -245,7 +246,26 @@ footer{font-size:.85rem;color:var(--muted)}
     <tbody>
       <tr><td>Baseline</td><td class="num">500 W</td><td class="num">25 °C</td><td class="num">1.0</td><td class="num">48.1</td><td class="num">0.046</td><td class="num">n/a</td></tr>
       <tr><td>Realistic</td><td class="num">1,000 W</td><td class="num">40 °C</td><td class="num">1.0</td><td class="num">84.8</td><td class="num">0.045</td><td class="num">120</td></tr>
+      <tr><td>Realistic, higher flow</td><td class="num">1,000 W</td><td class="num">40 °C</td><td class="num">1.5</td><td class="num">78.7</td><td class="num">0.039</td><td class="num">~200</td></tr>
     </tbody></table></div>
+  <h3>Model build and checks</h3>
+  <ol>
+    <li>Built the geometry from primitives: copper base, side walls, lid, 30 fins, a 50 × 50 mm, 1,000 W chip, and a water block (Water at 320 K) that fills the channels.</li>
+    <li>Set object priority so the copper fins cut through the coolant, then assigned a velocity or mass-flow inlet at 40 °C and a pressure outlet.</li>
+    <li>Meshed with a separate refined region on the coolant (0.125 mm max element across the 1 mm channels) and a coarser global mesh, about 660k cells total.</li>
+    <li>Solved laminar, steady conjugate flow and heat transfer, with monitor points on the chip, inlet and outlet.</li>
+    <li>Called a run converged only when the monitor temperatures went flat and the energy balance closed (heat out of the water within 0.1% of the 1,000 W input), then read pressure drop from a surface-average fields summary.</li>
+  </ol>
+  <div class="gallery">
+    <figure><img src="img/cp_model.jpg" alt="Icepak model of the cold plate with the lid hidden: cyan water block filling the channels between copper fins on a copper base"><figcaption>Fins and water block in Icepak.</figcaption></figure>
+    <figure><img src="img/cp_mesh_top.jpg" alt="Mesh view of the cold plate base with the 50 by 50 mm chip footprint in the middle"><figcaption>Mesh on the base and chip footprint.</figcaption></figure>
+    <figure><img src="img/cp_monitors.jpg" style="object-fit:contain;background:#fff" alt="Temperature monitor plot: chip around 82 °C and outlet around 57 °C for 500 iterations, then both step down when flow is raised at iteration 500"><figcaption>Monitors flatten, then step down when flow goes from 1.0 to 1.5 L/min.</figcaption></figure>
+    <figure><img src="img/cp_residuals.jpg" style="object-fit:contain;background:#fff" alt="Residual plot for continuity, velocity and energy over 1,000 iterations, with a restart at iteration 500"><figcaption>Residuals for the same two-stage run.</figcaption></figure>
+  </div>
+  <figure>
+    <img src="img/cp_mesh_channels.jpg" alt="Cross-section of the mesh showing fine cells inside the water channels between coarser copper fins and base">
+    <figcaption>Cross-section: the refined coolant mesh puts several cells across each 1 mm channel while the copper stays coarse.</figcaption>
+  </figure>
 </section>
 <hr>
 
