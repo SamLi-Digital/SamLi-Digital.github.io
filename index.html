@@ -41,6 +41,9 @@ a:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
 .fill{background:var(--fill-bg);color:var(--fill-fg);padding:0 .3em;border-radius:3px;font-family:var(--f-mono);font-size:.88em}
 .draft{background:var(--fill-bg);color:var(--fill-fg);border-radius:6px;padding:12px 16px;font-size:.92rem}
 header{display:flex;flex-direction:column;gap:14px;padding-bottom:28px;border-bottom:3px solid var(--fg)}
+.hero{display:flex;align-items:center;gap:20px}
+.headshot{width:112px;height:112px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--line)}
+@media (max-width:520px){.headshot{width:84px;height:84px}.hero{gap:14px}}
 .tag{font-size:1.2rem;color:var(--muted);max-width:60ch}
 .contact{display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--f-mono);font-size:.85rem}
 .contact span{user-select:all}
@@ -64,6 +67,8 @@ ul,ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
 figure{margin:0;display:flex;flex-direction:column;gap:8px}
 figure img{border:1px solid var(--line);border-radius:6px;background:#fff;width:100%}
 .full{display:flex;flex-direction:column;gap:14px}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,260px));gap:16px}
+.vids video{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);border-radius:6px;background:#000}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;align-items:start}
 .gallery img{aspect-ratio:1/1;object-fit:cover}
 .slot{aspect-ratio:4/3;max-width:100%;border:2px dashed var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--muted);font-size:.88rem;background:var(--surface)}
@@ -84,7 +89,10 @@ footer{font-size:.85rem;color:var(--muted)}
 <div class="wrap">
 <header>
   <span class="eyebrow">Mechanical engineering · University of Missouri · May 2027</span>
-  <h1>Sam (Yipu) Li</h1>
+  <div class="hero">
+    <img class="headshot" src="img/headshot.jpg" alt="Headshot of Sam Li">
+    <h1>Sam (Yipu) Li</h1>
+  </div>
   <p class="tag">I build and run thermal-fluid test rigs. As an undergraduate research fellow in Dr. Yue Jin's nuclear thermal-hydraulics lab, I lead the spray cooling boiling rig from design through build, and I run microchannel and flow-boiling tests. I'm heading toward advanced nuclear and electronics cooling.</p>
   <div class="contact">
     <span>yyuan.digital@gmail.com</span>
@@ -146,6 +154,9 @@ footer{font-size:.85rem;color:var(--muted)}
       <figcaption>Installed: the copper post clamped under the chamber floor, with brass valves for fill and drain.</figcaption>
     </figure>
   </div>
+  <div class="vids">
+    <figure><video src="vid/spray_glass_sealant.mp4" poster="vid/spray_glass_sealant.jpg" controls muted loop playsinline preload="none" aria-label="Sam testing a glass viewing panel and sealant on the spray chamber"></video><figcaption>Testing glass panels and sealants: checking how each sealant adheres to the glass before choosing one.</figcaption></figure>
+  </div>
   <h3>Heater block design: v1 to v2</h3>
   <p><b>v1 (HB-7P-001)</b> is a copper block: a 2.25" flange on a 0.87" post that holds 7 cartridge heaters in 0.253" bores, 2.08" deep. Six 1 mm thermocouple holes sit 0.040" below the boiling face, 60° apart, each drilled to a different depth so they read temperature at different radii. I sized the O-ring face groove for an AS568-032 Aflas ring (1.916–2.124" groove, 0.052" deep) and added 4 #4-40 mounting holes.</p>
   <p><b>v2 (HB-7P-002)</b> is built for heat-flux measurement. It adds a raised 1.200" heated surface with a flat, 16 µin Ra finish. Six surface probes still sit 0.040" below the top, and a new stack of 3 thermocouples sits at 0.150, 0.275 and 0.400" below the top, all ending on the centerline. The temperature drop down that stack gives the heat flux through 1-D conduction and lets me extrapolate the surface temperature. I kept the same O-ring groove and moved the #4-40 holes to blind holes tapped from the bottom, so no screw hole breaks into the wet side.</p>
@@ -194,6 +205,10 @@ footer{font-size:.85rem;color:var(--muted)}
       <figcaption>The test bench during a run, logging live in DAQExpress.</figcaption>
     </figure>
   </div>
+    <div class="vids">
+    <figure><video src="vid/mc_piv_setup.mp4" poster="vid/mc_piv_setup.jpg" controls muted loop playsinline preload="none" aria-label="Sam positioning the microchannel test section with its heater block under the micro-PIV microscope and camera"></video><figcaption>Mounting the microchannel test section and heater block and lining it up under the laser and camera.</figcaption></figure>
+    <figure><video src="vid/mc_daq_wiring.mp4" poster="vid/mc_daq_wiring.jpg" controls muted loop playsinline preload="none" aria-label="Sam wiring thermocouples, RTDs and the flow sensor into the NI data acquisition module"></video><figcaption>Wiring thermocouples, RTDs and the flow sensor into the NI DAQ.</figcaption></figure>
+    </div>
     <h3>Thermal test method</h3>
     <ol>
       <li><b>Leak check:</b> pressurize the loop pneumatically to about 1,000 psi, hold, then bleed down in a controlled way to about 50 psi.</li>
