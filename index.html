@@ -243,12 +243,12 @@ footer{font-size:.85rem;color:var(--muted)}
       <li><b>Seeding:</b> add tracer particles to the water so the laser sheet lights up the flow.</li>
       <li><b>Dark setup:</b> lights off and the enclosure closed; switch the laser from standby to on at 28 A and start a new run folder in Insight 4G.</li>
       <li><b>Timing:</b> sync the Phantom high-speed camera (Phantom Camera Control) to the laser through TSI Insight 4G, switching the camera trigger from internal to external.</li>
-      <li><b>Capture:</b> 4 flow cases × 150 image pairs each at a 25 Hz pulse rate. The time between laser pulses is shortened as flow speeds up so particles move a trackable distance.</li>
+      <li><b>Capture:</b> PIV runs are unheated. Flow is set by pump voltage, and inlet and outlet pressure are logged for ΔP = P<sub>in</sub> − P<sub>out</sub>. Each geometry (straight, zigzag, S-shaped) gets 4 flow cases × 150 frames at a 25 Hz pulse rate, recorded back to back (frames 0–149, 150–299, and so on). The time between laser pulses is shortened as flow speeds up so particles move a trackable distance.</li>
       <li><b>Process:</b> cross-correlate the image pairs in Insight 4G to get velocity fields in each channel shape.</li>
     </ol>
     <div class="tbl"><table>
-      <thead><tr><th>Flow setting</th><th>0.7 V</th><th>1.0 V</th><th>1.5 V</th><th>2.0 V</th></tr></thead>
-      <tbody><tr><td>Pulse separation Δt</td><td class="num">12 µs</td><td class="num">8 µs</td><td class="num">5.6 µs</td><td class="num">4.2 µs</td></tr></tbody>
+      <thead><tr><th>Pump setting</th><th>0.7 V</th><th>1.0 V</th><th>1.5 V</th><th>2.0 V (reads ~1.8 V)</th></tr></thead>
+      <tbody><tr><td>Frames</td><td class="num">0–149</td><td class="num">150–299</td><td class="num">300–449</td><td class="num">450–599</td></tr><tr><td>Pulse separation Δt</td><td class="num">12 µs</td><td class="num">8 µs</td><td class="num">5.6 µs</td><td class="num">4.2 µs</td></tr></tbody>
     </table></div>
     <p>These measurements also give my PhD mentor ground truth for physics-informed PyTorch models, constrained by mass, momentum and energy conservation, that aim to match CFD at a fraction of the cost. I also commission the lab's two-phase flow boiling loop (vacuum, DI water fill, pressure test, startup).</p>
     <h3>CFD side of the project</h3>
