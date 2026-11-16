@@ -228,19 +228,22 @@ footer{font-size:.85rem;color:var(--muted)}
     </div>
     <h3>Thermal test method</h3>
     <ol>
+      <li><b>Install:</b> secure the microchannel test section in the loop and connect the water lines.</li>
       <li><b>Leak check:</b> pressurize the loop pneumatically to about 1,000 psi, hold, then bleed down in a controlled way to about 50 psi.</li>
       <li><b>Vacuum and fill:</b> evacuate the loop and fill it with water so no air pockets skew the readings.</li>
       <li><b>Heater and sensors:</b> mount the heater block with thermal paste; wire thermocouples, in-stream inlet and outlet RTDs, inlet and outlet pressure transducers and a flowmeter into an NI DAQ logged in DAQExpress.</li>
-      <li><b>Run:</b> hold a 10 °C chiller-controlled inlet, step through flow rates and heater powers, and record at steady state.</li>
+      <li><b>Run:</b> start the pump, hold 10 °C water into the test section through the chiller heat exchanger, step through flow rates and heater powers, and record at steady state.</li>
       <li><b>Analyze:</b> with my PhD mentor, compute heat transfer coefficient vs. pressure drop for each geometry and separate real trends from sensor and test artifacts.</li>
       <li><b>Shut down:</b> drain with compressed air and clean the test section in an acetone, then IPA, ultrasonic bath.</li>
     </ol>
     <h3>Micro-PIV method</h3>
     <ol>
-      <li><b>Optical access:</b> seal the test section with an O-ring under a glass window.</li>
+      <li><b>Optical access:</b> seal the test section with an O-ring under a glass window and screw it down; start the laser warming up.</li>
+      <li><b>Leak check and vacuum:</b> pressure-test with compressed air, vent, then pull a vacuum before filling.</li>
       <li><b>Seeding:</b> add tracer particles to the water so the laser sheet lights up the flow.</li>
+      <li><b>Dark setup:</b> lights off and the enclosure closed; switch the laser from standby to on at 28 A and start a new run folder in Insight 4G.</li>
       <li><b>Timing:</b> sync the Phantom high-speed camera (Phantom Camera Control) to the laser through TSI Insight 4G, switching the camera trigger from internal to external.</li>
-      <li><b>Capture:</b> 4 flow cases × 150 image pairs each at 25 Hz, with laser current at 28 A. The time between laser pulses is shortened as flow speeds up so particles move a trackable distance.</li>
+      <li><b>Capture:</b> 4 flow cases × 150 image pairs each at a 25 Hz pulse rate. The time between laser pulses is shortened as flow speeds up so particles move a trackable distance.</li>
       <li><b>Process:</b> cross-correlate the image pairs in Insight 4G to get velocity fields in each channel shape.</li>
     </ol>
     <div class="tbl"><table>
