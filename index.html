@@ -218,20 +218,6 @@ footer{font-size:.85rem;color:var(--muted)}
       <li><b>Analyze:</b> with my PhD mentor, compute heat transfer coefficient vs. pressure drop for each geometry and separate real trends from sensor and test artifacts.</li>
       <li><b>Shut down:</b> drain with compressed air and clean the test section in an acetone, then IPA, ultrasonic bath.</li>
     </ol>
-    <h3>Sample run: straight channel, Oct. 14, 2026</h3>
-    <p>62 W of heater power, 40.4 mL/min of water with the chiller set to 14 °C, held for 30 minutes until every reading went flat. The table averages the last 5 minutes.</p>
-    <div class="tbl"><table>
-      <thead><tr><th>Measured</th><th>Value</th><th>Derived</th><th>Value</th></tr></thead>
-      <tbody>
-        <tr><td>Water inlet / outlet (RTD)</td><td class="num">14.9 / 31.3 °C</td><td>Heat into water, ṁ·cp·ΔT</td><td class="num">46.2 W</td></tr>
-        <tr><td>Channel wall, 6 TCs</td><td class="num">39.7–48.9 °C</td><td>Heat loss (from calibration)</td><td class="num">5.0 W</td></tr>
-        <tr><td>Pressure drop</td><td class="num">3.46 mbar</td><td>Energy accounted for</td><td class="num">74.6% → 82.6%</td></tr>
-      </tbody></table></div>
-    <p>Only 74.6% of the heater power showed up in the water, so the rest was estimated as heat loss to the room. A separate calibration fit the average heater surface temperature against power from 0 to 20 W (2nd-order fit, R² = 0.999). At this run's 44.8 °C wall temperature that curve gives about 5 W of loss, which brings the energy balance to 82.6%.</p>
-    <div class="gallery">
-      <figure><a href="img/mc_run_temps.jpg"><img src="img/mc_run_temps.jpg" style="aspect-ratio:auto;object-fit:contain" alt="Plot of six channel thermocouples and the inlet and outlet RTDs over 30 minutes, rising quickly and leveling off; inlet stays near 15 °C, outlet near 31 °C, wall thermocouples between 40 and 49 °C" loading="lazy"></a><figcaption>Temperatures over the 30-minute run, settling to steady state.</figcaption></figure>
-      <figure><a href="img/mc_heatloss_cal.jpg"><img src="img/mc_heatloss_cal.jpg" style="aspect-ratio:auto;object-fit:contain" alt="Heat-loss calibration: average heater surface temperature versus power from 0 to 20 W with a second-order fit, R squared 0.9992" loading="lazy"></a><figcaption>Heat-loss calibration: wall temperature vs. power.</figcaption></figure>
-    </div>
     <h3>Micro-PIV method</h3>
     <ol>
       <li><b>Optical access:</b> seal the test section with an O-ring under a glass window.</li>
