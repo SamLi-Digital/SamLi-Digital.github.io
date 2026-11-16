@@ -41,6 +41,8 @@ a:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
 .fill{background:var(--fill-bg);color:var(--fill-fg);padding:0 .3em;border-radius:3px;font-family:var(--f-mono);font-size:.88em}
 .draft{background:var(--fill-bg);color:var(--fill-fg);border-radius:6px;padding:12px 16px;font-size:.92rem}
 header{display:flex;flex-direction:column;gap:14px;padding-bottom:28px;border-bottom:3px solid var(--fg)}
+.highlights{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.highlights li{border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:.92rem;line-height:1.45;margin:0}
 .hero{display:flex;align-items:center;gap:20px}
 .headshot{width:112px;height:112px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--line)}
 @media (max-width:520px){.headshot{width:84px;height:84px}.hero{gap:14px}}
@@ -94,8 +96,13 @@ footer{font-size:.85rem;color:var(--muted)}
     <h1>Sam (Yipu) Li</h1>
   </div>
   <p class="tag">I build and run thermal-fluid test rigs. As an undergraduate research fellow in Dr. Yue Jin's nuclear thermal-hydraulics lab, I lead the spray cooling boiling rig from design through build, and I run microchannel and flow-boiling tests. I'm heading toward advanced nuclear and electronics cooling.</p>
+  <ul class="highlights">
+    <li><b>Test rig lead:</b> designed and hand-built the lab's spray cooling boiling rig, from CAD to sourcing to assembly</li>
+    <li><b>Conference research:</b> co-author, NURETH-22 microchannel paper (abstract accepted); micro-PIV and thermal testing</li>
+    <li><b>Self-taught CFD:</b> Ansys Icepak cold plate model at 1,000 W, 84.8 °C peak, energy balance closed within 0.1%</li>
+  </ul>
   <div class="contact">
-    <span>yyuan.digital@gmail.com</span>
+    <a href="mailto:yyuan.digital@gmail.com">yyuan.digital@gmail.com</a>
     <a href="https://www.linkedin.com/in/sam-li-a70471350/">LinkedIn</a>
     <span>Columbia, MO · open to relocation</span>
   </div>
