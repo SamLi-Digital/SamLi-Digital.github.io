@@ -166,7 +166,7 @@ footer{font-size:.85rem;color:var(--muted)}
   <dl class="meta">
     <div><dt>Role</dt><dd>Undergraduate researcher</dd></div>
     <div><dt>Team</dt><dd>C. Mao, D. Tilawen, S. Li, Y. Jin</dd></div>
-    <div><dt>Tools</dt><dd>NI cDAQ + DAQExpress, Phantom PCC, TSI Insight 4G</dd></div>
+    <div><dt>Tools</dt><dd>NI cDAQ + DAQExpress, Phantom PCC, TSI Insight 4G, Ansys Fluent</dd></div>
     <div><dt>Status</dt><dd><span class="status">NURETH-22 abstract accepted</span></dd></div>
   </dl>
   <div class="full">
@@ -211,9 +211,11 @@ footer{font-size:.85rem;color:var(--muted)}
       <tbody><tr><td>Pulse separation Δt</td><td class="num">12 µs</td><td class="num">8 µs</td><td class="num">5.6 µs</td><td class="num">4.2 µs</td></tr></tbody>
     </table></div>
     <p>These measurements also give my PhD mentor ground truth for physics-informed PyTorch models, constrained by mass, momentum and energy conservation, that aim to match CFD at a fraction of the cost. I also commission the lab's two-phase flow boiling loop (vacuum, DI water fill, pressure test, startup).</p>
+    <h3>My CFD model</h3>
+    <p>I also built my own 3-D Ansys Fluent model of the straight-channel test section (about 6.3 million cells, pressure-based solver with the realizable k-ε model, run in parallel on 15 cores). It resolves the flow and the conjugate temperature field in the plate, so it can be checked against our thermocouple and micro-PIV data.</p>
     <div class="gallery">
-      <figure><img src="img/mc_cfd_temp.jpg" style="aspect-ratio:auto" alt="Ansys Fluent contour of static temperature on the straight microchannel plate, cool blue in the channel region and hotter red and yellow at the edges, 313 to 612 K" loading="lazy"><figcaption>Fluent: temperature on the straight-channel plate.</figcaption></figure>
-      <figure><img src="img/mc_cfd_vectors.jpg" style="aspect-ratio:auto" alt="Ansys Fluent velocity vectors on cross-sections along the straight microchannel, colored by velocity magnitude up to about 1.2 m/s" loading="lazy"><figcaption>Fluent: velocity vectors along the channel, up to about 1.2 m/s.</figcaption></figure>
+      <figure><img src="img/mc_cfd_temp.jpg" style="aspect-ratio:auto" alt="Ansys Fluent contour of static temperature on the straight microchannel plate, cool blue in the channel region and hotter red and yellow at the edges, 313 to 612 K" loading="lazy"><figcaption>My Fluent model: temperature on the straight-channel plate.</figcaption></figure>
+      <figure><img src="img/mc_cfd_vectors.jpg" style="aspect-ratio:auto" alt="Ansys Fluent velocity vectors on cross-sections along the straight microchannel, colored by velocity magnitude up to about 1.2 m/s" loading="lazy"><figcaption>My Fluent model: velocity vectors along the channel, up to about 1.2 m/s.</figcaption></figure>
     </div>
   </div>
   <div class="lessons"><h3>Publication</h3>
