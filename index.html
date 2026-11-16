@@ -244,6 +244,7 @@ footer{font-size:.85rem;color:var(--muted)}
       <li><b>Dark setup:</b> lights off and the enclosure closed; switch the laser from standby to on at 28 A and start a new run folder in Insight 4G.</li>
       <li><b>Timing:</b> sync the Phantom high-speed camera (Phantom Camera Control) to the laser through TSI Insight 4G, switching the camera trigger from internal to external.</li>
       <li><b>Capture:</b> PIV runs are unheated. Flow is set by pump voltage, and inlet and outlet pressure are logged for ΔP = P<sub>in</sub> − P<sub>out</sub>. Each geometry (straight, zigzag, S-shaped) gets 4 flow cases × 150 frames at a 25 Hz pulse rate, recorded back to back (frames 0–149, 150–299, and so on). The time between laser pulses is shortened as flow speeds up so particles move a trackable distance.</li>
+      <li><b>Repeat and check:</b> record a second full set of the 4 cases to check repeatability. In the repeat set the late frames degraded, and I traced it to tracer particles settling onto the channel floor, so those frames get flagged instead of trusted.</li>
       <li><b>Process:</b> cross-correlate the image pairs in Insight 4G to get velocity fields in each channel shape.</li>
     </ol>
     <div class="tbl"><table>
